@@ -1,0 +1,38 @@
+<div class="bg-body-secondary text-center py-5 rounded-2">
+
+    <h1 class="display-6 fw-bold">
+         Weather Monitor
+    </h1>
+</div>
+<div class="row mt-5">
+    <div class="col-6">
+
+        <p-table [value]="listWeather" styleClass="p-datatable-striped" 
+        [tableStyle]="{ 'min-width': '50rem' }">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>Date</th>
+                    <th>TemperatureC</th>
+                    <th>TemperatureF</th>
+                    <th>summary</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-weather>
+                <tr>
+                    <td>{{ weather.date }}</td>
+                    <td>{{ weather.temperatureC }}</td>
+                    <td>{{ weather.temperatureF }}</td>
+                    <td>{{ weather.summary }}</td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+    <div class="col-6" >
+        <form [formGroup]="dialogForm" >
+
+            <label for="temperatureC" class="me-2">Temperature Celcius</label>
+            <input id="temperatureC" type="text" pInputText formControlName="temperatureC" placeholder="temperatureC" maxlength="30" />     
+        </form>
+
+    </div>
+</div>
